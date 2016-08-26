@@ -51,3 +51,12 @@ gulp.task("build-html", () => {
                .pipe(revReplace({manifest: manifest}))
                .pipe(gulp.dest(`${DEST_PATH}/page/`));
 });
+
+
+
+gulp.task("replaceToDev", () => {
+    const manifest = gulp.src(`${DEST_PATH}/manifest.json`);
+    return gulp.src(`${SRC_PATH}/page/**/*.html`)
+               .pipe(revReplace({manifest: manifest}))
+               .pipe(gulp.dest(`${DEST_PATH}/page_dev/`));
+});
